@@ -21,7 +21,7 @@ export class AnalyticsEvent {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ uuid: true })
+  @Column('uuid')
   @Index()
   profile_id: string;
 

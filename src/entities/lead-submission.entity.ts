@@ -21,7 +21,7 @@ export class LeadSubmission {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ uuid: true })
+  @Column('uuid')
   lead_form_id: string;
 
   @ManyToOne(() => LeadForm, (form) => form.submissions, {
@@ -30,7 +30,7 @@ export class LeadSubmission {
   @JoinColumn({ name: 'lead_form_id' })
   lead_form: LeadForm;
 
-  @Column({ uuid: true })
+  @Column('uuid')
   @Index()
   profile_id: string;
 

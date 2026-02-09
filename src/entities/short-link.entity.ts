@@ -14,7 +14,7 @@ export class ShortLink {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ uuid: true })
+  @Column('uuid')
   profile_id: string;
 
   @ManyToOne(() => Profile, (profile) => profile.short_links, {

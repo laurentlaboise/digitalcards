@@ -28,7 +28,7 @@ export class SocialLink {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ uuid: true })
+  @Column('uuid')
   profile_id: string;
 
   @ManyToOne(() => Profile, (profile) => profile.social_links, {

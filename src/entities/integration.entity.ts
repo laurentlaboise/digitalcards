@@ -23,14 +23,14 @@ export class Integration {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ uuid: true, nullable: true })
+  @Column({ type: 'uuid', nullable: true })
   user_id: string;
 
   @ManyToOne(() => User, (user) => user.integrations, { nullable: true })
   @JoinColumn({ name: 'user_id' })
   user: User;
 
-  @Column({ uuid: true, nullable: true })
+  @Column({ type: 'uuid', nullable: true })
   organization_id: string;
 
   @ManyToOne(() => Organization, (org) => org.integrations, { nullable: true })
