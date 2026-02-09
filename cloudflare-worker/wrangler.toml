@@ -1,0 +1,22 @@
+name = "digitalcards-edge"
+main = "worker.ts"
+compatibility_date = "2024-01-01"
+
+[vars]
+API_ORIGIN = "https://api.digitalcards.io"
+
+[[kv_namespaces]]
+binding = "SHORT_LINK_CACHE"
+id = "your-kv-namespace-id"
+preview_id = "your-preview-kv-id"
+
+[env.staging]
+vars = { API_ORIGIN = "https://staging-api.digitalcards.io" }
+
+[env.production]
+vars = { API_ORIGIN = "https://api.digitalcards.io" }
+routes = [
+  { pattern = "digitalcards.io/s/*", zone_name = "digitalcards.io" },
+  { pattern = "digitalcards.io/p/*", zone_name = "digitalcards.io" },
+  { pattern = "digitalcards.io/qr/*", zone_name = "digitalcards.io" },
+]
