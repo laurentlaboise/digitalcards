@@ -69,7 +69,6 @@ export default () => ({
   urls: {
     app: process.env.APP_URL || 'http://localhost:3000',
     frontend: process.env.FRONTEND_URL || 'http://localhost:3001',
-    shortLinkBase:
-      process.env.SHORT_LINK_BASE_URL || 'http://localhost:3000/s',
+    shortLinkBase: process.env.SHORT_LINK_BASE_URL || 'http://localhost:3000/s',
   },
 });

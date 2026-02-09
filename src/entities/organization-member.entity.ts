@@ -20,14 +20,14 @@ export class OrganizationMember {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ uuid: true })
+  @Column('uuid')
   organization_id: string;
 
   @ManyToOne(() => Organization, (org) => org.members, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'organization_id' })
   organization: Organization;
 
-  @Column({ uuid: true })
+  @Column('uuid')
   user_id: string;
 
   @ManyToOne(() => User, (user) => user.organization_memberships, {
@@ -39,7 +39,7 @@ export class OrganizationMember {
   @Column({ type: 'enum', enum: OrgRole, default: OrgRole.VIEWER })
   role: OrgRole;
 
-  @Column({ nullable: true, uuid: true })
+  @Column({ type: 'uuid', nullable: true })
   invited_by_user_id: string;
 
   @ManyToOne(() => User)

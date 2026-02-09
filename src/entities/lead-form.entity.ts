@@ -17,7 +17,7 @@ export class LeadForm {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ uuid: true })
+  @Column('uuid')
   profile_id: string;
 
   @ManyToOne(() => Profile, (profile) => profile.lead_forms, {
@@ -53,7 +53,7 @@ export class LeadForm {
   @Column({ default: false })
   auto_followup_enabled: boolean;
 
-  @Column({ uuid: true, nullable: true })
+  @Column({ type: 'uuid', nullable: true })
   followup_template_id: string;
 
   @ManyToOne(() => EmailTemplate, { nullable: true })

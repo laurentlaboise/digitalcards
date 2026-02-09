@@ -41,7 +41,7 @@ export class NFCDevice {
   @Index()
   provisioning_token: string;
 
-  @Column({ uuid: true, nullable: true })
+  @Column({ type: 'uuid', nullable: true })
   profile_id: string;
 
   @ManyToOne(() => Profile, (profile) => profile.nfc_devices, {
@@ -53,7 +53,7 @@ export class NFCDevice {
   @Column({ nullable: true })
   activated_at: Date;
 
-  @Column({ uuid: true, nullable: true })
+  @Column({ type: 'uuid', nullable: true })
   order_id: string;
 
   @ManyToOne(() => Order, { nullable: true })

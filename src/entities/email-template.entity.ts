@@ -14,7 +14,7 @@ export class EmailTemplate {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ uuid: true, nullable: true })
+  @Column({ type: 'uuid', nullable: true })
   organization_id: string;
 
   @ManyToOne(() => Organization, (org) => org.email_templates, {

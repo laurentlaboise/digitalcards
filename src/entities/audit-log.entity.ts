@@ -35,14 +35,14 @@ export class AuditLog {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ uuid: true })
+  @Column('uuid')
   user_id: string;
 
   @ManyToOne(() => User, (user) => user.audit_logs)
   @JoinColumn({ name: 'user_id' })
   user: User;
 
-  @Column({ uuid: true, nullable: true })
+  @Column({ type: 'uuid', nullable: true })
   organization_id: string;
 
   @ManyToOne(() => Organization, (org) => org.audit_logs, { nullable: true })
@@ -55,7 +55,7 @@ export class AuditLog {
   @Column({ type: 'enum', enum: AuditResourceType })
   resource_type: AuditResourceType;
 
-  @Column({ uuid: true })
+  @Column('uuid')
   resource_id: string;
 
   @Column({ type: 'jsonb', nullable: true })

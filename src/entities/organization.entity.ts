@@ -25,7 +25,7 @@ export class Organization {
   @Column()
   name: string;
 
-  @Column({ uuid: true })
+  @Column('uuid')
   owner_user_id: string;
 
   @ManyToOne(() => User, (user) => user.owned_organizations)

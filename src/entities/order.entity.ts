@@ -30,14 +30,14 @@ export class Order {
   @PrimaryGeneratedColumn('uuid')
   id: string;
 
-  @Column({ uuid: true })
+  @Column('uuid')
   user_id: string;
 
   @ManyToOne(() => User, (user) => user.orders, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'user_id' })
   user: User;
 
-  @Column({ uuid: true, nullable: true })
+  @Column({ type: 'uuid', nullable: true })
   organization_id: string;
 
   @ManyToOne(() => Organization, (org) => org.orders, { nullable: true })

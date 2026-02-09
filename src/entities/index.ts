@@ -18,9 +18,5 @@ export {
   SubscriptionPlan,
 } from './subscription.entity';
 export { EmailTemplate } from './email-template.entity';
-export {
-  AuditLog,
-  AuditAction,
-  AuditResourceType,
-} from './audit-log.entity';
+export { AuditLog, AuditAction, AuditResourceType } from './audit-log.entity';
 export { Integration, IntegrationType } from './integration.entity';
