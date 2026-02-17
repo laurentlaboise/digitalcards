@@ -14,18 +14,9 @@ import { Order } from './order.entity';
 import { Subscription } from './subscription.entity';
 import { AuditLog } from './audit-log.entity';
 import { Integration } from './integration.entity';
+import { AuthMethod, SubscriptionTier } from './enums';
 
-export enum AuthMethod {
-  PASSWORD = 'password',
-  PASSKEY = 'passkey',
-  SSO = 'sso',
-}
-
-export enum SubscriptionTier {
-  FREE = 'free',
-  PRO = 'pro',
-  ENTERPRISE = 'enterprise',
-}
+export { AuthMethod, SubscriptionTier };
 
 @Entity('users')
 export class User {
