@@ -31,9 +31,7 @@ export class OrdersService {
     private readonly productsService: ProductsService,
     private readonly configService: ConfigService,
   ) {
-    this.stripe = new Stripe(this.configService.get('stripe.secretKey'), {
-      apiVersion: '2023-10-16',
-    });
+    this.stripe = new Stripe(this.configService.get('stripe.secretKey'));
   }
 
   async createCheckoutSession(

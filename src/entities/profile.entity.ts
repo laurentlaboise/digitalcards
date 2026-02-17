@@ -68,7 +68,7 @@ export class Profile {
 
   @Column({ type: 'jsonb', nullable: true })
   theme_settings: {
-    colors?: { primary: string; secondary: string; background: string };
+    colors?: { primary?: string; secondary?: string; background?: string };
     background?: string;
     font?: string;
     layout?: string;
