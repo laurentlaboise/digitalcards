@@ -1,0 +1,62 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id        String   @id @default(cuid())
+  email     String   @unique
+  password  String
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  cards     Card[]
+}
+
+model Card {
+  id              String   @id @default(cuid())
+  slug            String   @unique
+  userId          String
+  user            User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  fullName        String
+  jobTitle        String?
+  company         String?
+  bio             String?  @db.Text
+
+  email           String?
+  phone           String?
+  website         String?
+  address         String?
+
+  avatarUrl       String?
+  bannerUrl       String?
+
+  socialLinks     Json?
+
+  primaryColor    String   @default("#c8261d")
+  accentColor     String   @default("#6b0500")
+  backgroundColor String   @default("#220200")
+
+  viewCount       Int      @default(0)
+  lastViewedAt    DateTime?
+
+  isPublished     Boolean  @default(true)
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  scans           ContactScan[]
+}
+
+model ContactScan {
+  id        String   @id @default(cuid())
+  cardId    String
+  card      Card     @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  scannedAt DateTime @default(now())
+  ipAddress String?
+  userAgent String?
+}
