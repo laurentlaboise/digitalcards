@@ -3,7 +3,7 @@ import { ConfigService } from '@nestjs/config';
 import { DataSource } from 'typeorm';
 import Redis from 'ioredis';
 
-interface HealthCheckResult {
+export interface HealthCheckResult {
   status: 'ok' | 'error';
   timestamp: string;
   uptime: number;

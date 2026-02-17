@@ -4,7 +4,7 @@ import { Job } from 'bullmq';
 import { ConfigService } from '@nestjs/config';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
-import { AnalyticsEvent, QRCode, QRFormat, MediaAsset } from '../../../entities';
+import { AnalyticsEvent, EventType, QRCode, QRFormat, MediaAsset } from '../../../entities';
 import * as QRCodeLib from 'qrcode';
 
 @Processor('processing')
@@ -145,6 +145,7 @@ export class ProcessingProcessor extends WorkerHost {
     const entities = data.events.map((event) =>
       this.analyticsRepo.create({
         ...event,
+        event_type: event.event_type as EventType,
         timestamp: new Date(event.timestamp),
       }),
     );

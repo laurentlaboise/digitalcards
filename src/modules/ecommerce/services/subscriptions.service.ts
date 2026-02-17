@@ -20,7 +20,7 @@ import {
   OrderType,
 } from '../../../entities';
 
-interface PlanInfo {
+export interface PlanInfo {
   tier: SubscriptionPlan;
   name: string;
   description: string;
@@ -53,9 +53,7 @@ export class SubscriptionsService {
     private readonly orderRepository: Repository<Order>,
     private readonly configService: ConfigService,
   ) {
-    this.stripe = new Stripe(this.configService.get('stripe.secretKey'), {
-      apiVersion: '2023-10-16',
-    });
+    this.stripe = new Stripe(this.configService.get('stripe.secretKey'));
   }
 
   getPlans(): PlanInfo[] {
@@ -192,8 +190,8 @@ export class SubscriptionsService {
       },
     });
 
-    const invoice = stripeSubscription.latest_invoice as Stripe.Invoice;
-    const paymentIntent = invoice.payment_intent as Stripe.PaymentIntent;
+    const invoice = stripeSubscription.latest_invoice as unknown as Stripe.Invoice & { payment_intent: Stripe.PaymentIntent };
+    const paymentIntent = invoice.payment_intent;
 
     this.logger.log(
       `Created Stripe subscription ${stripeSubscription.id} for user ${userId} (tier: ${tier})`,
@@ -391,16 +389,17 @@ export class SubscriptionsService {
       return;
     }
 
+    const subAny = stripeSubscription as any;
     const subscription = this.subscriptionRepository.create({
       user_id: userId,
       stripe_subscription_id: stripeSubscription.id,
       tier,
       status: SubscriptionStatus.ACTIVE,
       current_period_start: new Date(
-        stripeSubscription.current_period_start * 1000,
+        subAny.current_period_start * 1000,
       ),
       current_period_end: new Date(
-        stripeSubscription.current_period_end * 1000,
+        subAny.current_period_end * 1000,
       ),
       seats_included: tier === SubscriptionPlan.ENTERPRISE ? 10 : 1,
       usage_quotas: this.getQuotasForTier(tier),
@@ -436,11 +435,12 @@ export class SubscriptionsService {
       return;
     }
 
+    const updatedSubAny = stripeSubscription as any;
     subscription.current_period_start = new Date(
-      stripeSubscription.current_period_start * 1000,
+      updatedSubAny.current_period_start * 1000,
     );
     subscription.current_period_end = new Date(
-      stripeSubscription.current_period_end * 1000,
+      updatedSubAny.current_period_end * 1000,
     );
 
     if (stripeSubscription.status === 'active') {
@@ -497,7 +497,7 @@ export class SubscriptionsService {
   private async handleInvoicePaymentFailed(
     invoice: Stripe.Invoice,
   ): Promise<void> {
-    const stripeSubscriptionId = invoice.subscription as string;
+    const stripeSubscriptionId = (invoice as any).subscription as string;
     if (!stripeSubscriptionId) return;
 
     const subscription = await this.subscriptionRepository.findOne({
@@ -522,7 +522,7 @@ export class SubscriptionsService {
   private async handleInvoicePaymentSucceeded(
     invoice: Stripe.Invoice,
   ): Promise<void> {
-    const stripeSubscriptionId = invoice.subscription as string;
+    const stripeSubscriptionId = (invoice as any).subscription as string;
     if (!stripeSubscriptionId) return;
 
     const subscription = await this.subscriptionRepository.findOne({

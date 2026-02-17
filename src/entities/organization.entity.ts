@@ -8,7 +8,8 @@ import {
   OneToMany,
   JoinColumn,
 } from 'typeorm';
-import { User, SubscriptionTier } from './user.entity';
+import { User } from './user.entity';
+import { SubscriptionTier } from './enums';
 import { OrganizationMember } from './organization-member.entity';
 import { Profile } from './profile.entity';
 import { Order } from './order.entity';

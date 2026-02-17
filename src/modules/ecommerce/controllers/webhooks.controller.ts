@@ -24,9 +24,7 @@ export class WebhooksController {
     private readonly subscriptionsService: SubscriptionsService,
     private readonly configService: ConfigService,
   ) {
-    this.stripe = new Stripe(this.configService.get('stripe.secretKey'), {
-      apiVersion: '2023-10-16',
-    });
+    this.stripe = new Stripe(this.configService.get('stripe.secretKey'));
   }
 
   @Post('stripe')
