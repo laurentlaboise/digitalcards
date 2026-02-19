@@ -10,7 +10,7 @@ import { LeadsController } from './controllers/leads.controller';
   imports: [
     TypeOrmModule.forFeature([LeadForm, LeadSubmission, Profile, EmailTemplate]),
     ConfigModule,
-    BullModule.registerQueue({ name: 'email' }, { name: 'processing' }),
+    BullModule.registerQueue({ name: 'leads' }, { name: 'analytics' }),
   ],
   controllers: [LeadsController],
   providers: [LeadsService],
