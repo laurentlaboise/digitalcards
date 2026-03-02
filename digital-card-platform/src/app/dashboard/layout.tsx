@@ -5,7 +5,7 @@ import { useRouter } from 'next/navigation';
 import { useEffect } from 'react';
 import Link from 'next/link';
 import { signOut } from 'next-auth/react';
-import { LayoutDashboard, Plus, LogOut, CreditCard, BarChart3, Settings, User } from 'lucide-react';
+import { LayoutDashboard, Plus, LogOut, CreditCard, User } from 'lucide-react';
 
 export default function DashboardLayout({
   children,
