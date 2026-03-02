@@ -3,9 +3,9 @@ import './globals.css';
 import { SessionProvider } from '@/components/SessionProvider';
 
 export const metadata: Metadata = {
-  title: 'Digital Card Platform - Create Beautiful Digital Business Cards',
+  title: 'Popl - Digital Business Cards Built for Lead Capture',
   description:
-    'Create and share stunning digital business cards with QR codes. Save contacts instantly.',
+    'The #1 digital business card platform. Capture leads, share contacts, and grow your network with NFC cards, QR codes, and digital wallets. Trusted by 2.5M+ professionals.',
 };
 
 export default function RootLayout({
@@ -15,7 +15,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>
+      <head>
+        <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
+        <link
+          href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap"
+          rel="stylesheet"
+        />
+      </head>
+      <body className="font-sans">
         <SessionProvider>{children}</SessionProvider>
       </body>
     </html>
