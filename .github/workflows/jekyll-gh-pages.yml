@@ -2,7 +2,10 @@ name: Deploy Next.js to GitHub Pages
 
 on:
   push:
-    branches: ["master"]
+    branches: ["master", "claude/design-saas-landing-page-D6EMw"]
+    paths:
+      - "digital-card-platform/**"
+      - ".github/workflows/jekyll-gh-pages.yml"
   workflow_dispatch:
 
 permissions:
