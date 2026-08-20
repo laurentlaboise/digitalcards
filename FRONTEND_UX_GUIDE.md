@@ -1,34 +1,32 @@
-# Frontend UX Guide - DigitalCards Platform
+# Frontend UX Guide - TapCard
 
 ## Overview
 
-The DigitalCards frontend has been enhanced with a modern, professional UX design featuring a blue-cyan gradient color scheme that reflects the NFC technology and digital nature of the platform.
+The TapCard frontend uses the brand lock: orange `#FF5722`, charcoal `#303942`, ITC Bauhaus for the wordmark (orange period), and an orange squircle with a white scribble. Do not use gold `#C9A84C`, indigo `#1B2A6B`, or sister lao.services magenta `#D40E54`.
 
 ## Design System
 
 ### Color Palette
 
 **Primary Colors:**
-- Blue: `#2563eb` (blue-600)
-- Cyan: `#06b6d4` (cyan-500)
-- Gradient: `from-blue-600 to-cyan-500`
+- Orange: `#FF5722`
+- Charcoal: `#303942`
 
 **Background Colors:**
-- Dark slate: `from-slate-900 via-blue-900 to-slate-900`
-- Card backgrounds: `slate-800/50` with backdrop blur
-- Borders: `blue-500/10` to `blue-500/30`
+- App chrome: charcoal `#303942`
+- Card backgrounds: `white/5` on charcoal
+- Borders: `white/10`
 
 **Text Colors:**
-- Primary: `white`
-- Secondary: `gray-300`
-- Tertiary: `gray-400`
-- Muted: `gray-500`
+- Primary: `white` on charcoal chrome
+- Body on marketing: charcoal `#303942`
+- Links: orange `#FF5722`
 
 ### Typography
 
-- **Headings:** Bold, white text with gradient accents
-- **Body:** Gray-300/400 for readability
-- **Links:** Blue-400 with hover to blue-300
+- **Wordmark:** ITC Bauhaus (Comfortaa fallback) — TapCard with an orange period
+- **UI:** Satoshi / Inter
+- **Links:** brand orange
 
 ### Components
 
@@ -36,12 +34,12 @@ The DigitalCards frontend has been enhanced with a modern, professional UX desig
 
 **Primary Button:**
 ```tsx
-className="rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 px-6 py-3 text-sm font-medium text-white hover:from-blue-700 hover:to-cyan-600 transition-all shadow-lg shadow-blue-500/25"
+className="rounded-lg bg-brand-orange px-6 py-3 text-sm font-medium text-white hover:bg-[#e64a19] transition-all shadow-lg shadow-brand-orange/25"
 ```
 
 **Secondary Button:**
 ```tsx
-className="rounded-lg border-2 border-blue-500/30 bg-blue-500/5 backdrop-blur-sm px-6 py-3 text-sm font-medium hover:border-blue-400/50 hover:bg-blue-500/10 transition"
+className="rounded-lg border-2 border-white/20 bg-white/5 backdrop-blur-sm px-6 py-3 text-sm font-medium hover:border-brand-orange/50 hover:bg-brand-orange/10 transition"
 ```
 
 #### Cards
@@ -300,4 +298,4 @@ See `DEPLOYMENT_GUIDE.md` for detailed instructions.
 
 **Last Updated:** Feb 19, 2026
 **Version:** 1.0.0
-**Maintained by:** DigitalCards Team
+**Maintained by:** TapCard Team

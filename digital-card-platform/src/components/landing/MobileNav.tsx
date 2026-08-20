@@ -74,7 +74,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
           <Link
             href="/register"
             onClick={onClose}
-            className="rounded-full bg-stone-900 text-white text-center px-8 py-4 text-base font-medium"
+            className="rounded-full bg-brand-orange text-white text-center px-8 py-4 text-base font-medium"
           >
             Get a demo
           </Link>

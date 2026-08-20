@@ -4,7 +4,8 @@ import { useState } from 'react';
 import { signIn } from 'next-auth/react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
-import { CreditCard, Mail, Lock, User, ArrowRight } from 'lucide-react';
+import { Mail, Lock, User, ArrowRight } from 'lucide-react';
+import TapCardWordmark from '@/components/brand/TapCardWordmark';
 
 export default function RegisterPage() {
   const router = useRouter();
@@ -54,21 +55,16 @@ export default function RegisterPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-slate-900 flex items-center justify-center px-4 relative overflow-hidden">
+    <div className="min-h-screen bg-brand-charcoal flex items-center justify-center px-4 relative overflow-hidden">
       {/* Background gradient orbs */}
-      <div className="absolute top-20 left-1/4 w-96 h-96 bg-blue-500/20 rounded-full blur-3xl"></div>
-      <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-cyan-500/20 rounded-full blur-3xl"></div>
+      <div className="absolute top-20 left-1/4 w-96 h-96 bg-brand-orange/15 rounded-full blur-3xl"></div>
+      <div className="absolute bottom-20 right-1/4 w-96 h-96 bg-brand-orange/10 rounded-full blur-3xl"></div>
       
       <div className="w-full max-w-md relative z-10">
         {/* Logo */}
         <div className="text-center mb-8">
-          <Link href="/" className="inline-flex items-center gap-2 mb-4">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-600 to-cyan-500 flex items-center justify-center">
-              <CreditCard className="w-7 h-7 text-white" />
-            </div>
-            <span className="text-3xl font-bold text-white">
-              Digital<span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">Cards</span>
-            </span>
+          <Link href="/" className="inline-flex items-center mb-4">
+            <TapCardWordmark tone="light" markSize={48} className="text-3xl" />
           </Link>
           <h1 className="text-2xl font-bold text-white mb-2">Create your account</h1>
           <p className="text-gray-400">Start creating beautiful digital business cards</p>
@@ -77,7 +73,7 @@ export default function RegisterPage() {
         {/* Register Form */}
         <form
           onSubmit={handleSubmit}
-          className="bg-slate-800/50 backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-blue-500/10"
+          className="bg-white/5 backdrop-blur-xl rounded-2xl p-8 shadow-2xl border border-white/10"
         >
           {error && (
             <div className="bg-red-500/10 border border-red-500/20 text-red-400 rounded-lg px-4 py-3 mb-6 text-sm flex items-start gap-2">
@@ -96,7 +92,7 @@ export default function RegisterPage() {
                 type="text"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
-                className="w-full rounded-lg bg-slate-900/50 border border-blue-500/20 pl-11 pr-4 py-3 text-white placeholder-gray-500 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+                className="w-full rounded-lg bg-brand-charcoal/80 border border-white/15 pl-11 pr-4 py-3 text-white placeholder-gray-500 focus:border-brand-orange/50 focus:outline-none focus:ring-2 focus:ring-brand-orange/20 transition-all"
                 placeholder="John Doe"
                 required
               />
@@ -113,7 +109,7 @@ export default function RegisterPage() {
                 type="email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full rounded-lg bg-slate-900/50 border border-blue-500/20 pl-11 pr-4 py-3 text-white placeholder-gray-500 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+                className="w-full rounded-lg bg-brand-charcoal/80 border border-white/15 pl-11 pr-4 py-3 text-white placeholder-gray-500 focus:border-brand-orange/50 focus:outline-none focus:ring-2 focus:ring-brand-orange/20 transition-all"
                 placeholder="you@example.com"
                 required
               />
@@ -130,7 +126,7 @@ export default function RegisterPage() {
                 type="password"
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
-                className="w-full rounded-lg bg-slate-900/50 border border-blue-500/20 pl-11 pr-4 py-3 text-white placeholder-gray-500 focus:border-blue-500/50 focus:outline-none focus:ring-2 focus:ring-blue-500/20 transition-all"
+                className="w-full rounded-lg bg-brand-charcoal/80 border border-white/15 pl-11 pr-4 py-3 text-white placeholder-gray-500 focus:border-brand-orange/50 focus:outline-none focus:ring-2 focus:ring-brand-orange/20 transition-all"
                 placeholder="Create a strong password"
                 required
                 minLength={6}
@@ -142,7 +138,7 @@ export default function RegisterPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full rounded-lg bg-gradient-to-r from-blue-600 to-cyan-500 px-4 py-3 font-medium text-white hover:from-blue-700 hover:to-cyan-600 transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-blue-500/25 flex items-center justify-center gap-2"
+            className="w-full rounded-lg bg-brand-orange px-4 py-3 font-medium text-white hover:bg-[#e64a19] transition-all disabled:opacity-50 disabled:cursor-not-allowed shadow-lg shadow-brand-orange/25 flex items-center justify-center gap-2"
           >
             {loading ? (
               <>
@@ -159,19 +155,19 @@ export default function RegisterPage() {
 
           <div className="mt-4 text-center text-xs text-gray-500">
             By signing up, you agree to our{' '}
-            <Link href="/terms" className="text-blue-400 hover:text-blue-300">
+            <Link href="/terms" className="text-brand-orange hover:text-orange-300">
               Terms of Service
             </Link>{' '}
             and{' '}
-            <Link href="/privacy" className="text-blue-400 hover:text-blue-300">
+            <Link href="/privacy" className="text-brand-orange hover:text-orange-300">
               Privacy Policy
             </Link>
           </div>
 
-          <div className="mt-6 pt-6 border-t border-blue-500/10">
+          <div className="mt-6 pt-6 border-t border-white/10">
             <p className="text-center text-sm text-gray-400">
               Already have an account?{' '}
-              <Link href="/login" className="text-blue-400 hover:text-blue-300 font-medium transition-colors">
+              <Link href="/login" className="text-brand-orange hover:text-orange-300 font-medium transition-colors">
                 Sign in
               </Link>
             </p>

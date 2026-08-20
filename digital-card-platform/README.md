@@ -1,6 +1,6 @@
-# Digital Card Platform
+# TapCard
 
-A full-stack digital business card web application built with Next.js 14, TypeScript, Tailwind CSS, and PostgreSQL. Create beautiful 3D flip business cards with QR codes that let anyone save your contact info with a single scan.
+The TapCard web app — a Next.js 14 digital business card application with 3D flip cards and QR codes so anyone can save your contact info with a single scan.
 
 ## Features
 
