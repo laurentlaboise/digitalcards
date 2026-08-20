@@ -1,6 +1,8 @@
-# DigitalCards - NFC Business Card SaaS Platform
+# TapCard
 
 A multi-tenant SaaS platform for digital NFC business cards. Enables professionals and organizations to create, share, and manage smart contact profiles with physical NFC hardware, analytics, and lead capture.
+
+**Product:** TapCard · **Site:** tapcard.asia · **Repo:** `laurentlaboise/digitalcards`
 
 ## Tech Stack
 

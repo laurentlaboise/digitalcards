@@ -66,9 +66,9 @@ export class EmailProcessor extends WorkerHost {
   private async sendWelcomeEmail(data: { email: string; name?: string }): Promise<void> {
     await this.sendEmail(
       data.email,
-      'Welcome to DigitalCards!',
+      'Welcome to TapCard!',
       `<h1>Welcome${data.name ? `, ${data.name}` : ''}!</h1>
-       <p>Thanks for joining DigitalCards. Create your first digital business card to get started.</p>
+       <p>Thanks for joining TapCard. Create your first digital business card to get started.</p>
        <a href="${this.configService.get('urls.frontend')}/dashboard">Go to Dashboard</a>`,
     );
   }
@@ -96,7 +96,7 @@ export class EmailProcessor extends WorkerHost {
       data.email,
       `You've been invited to join ${data.organizationName}`,
       `<h2>Team Invitation</h2>
-       <p>${data.inviterName} has invited you to join <strong>${data.organizationName}</strong> on DigitalCards.</p>
+       <p>${data.inviterName} has invited you to join <strong>${data.organizationName}</strong> on TapCard.</p>
        <a href="${inviteUrl}">Accept Invitation</a>`,
     );
   }

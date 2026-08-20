@@ -1,11 +1,15 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import './globals.css';
 import { SessionProvider } from '@/components/SessionProvider';
 
 export const metadata: Metadata = {
-  title: 'Popl - Digital Business Cards Built for Lead Capture',
+  title: 'TapCard — One tap. Every connection.',
   description:
-    'The #1 digital business card platform. Capture leads, share contacts, and grow your network with NFC cards, QR codes, and digital wallets. Trusted by 2.5M+ professionals.',
+    'The Southeast Asia–native digital business card. Share contacts with a tap, QR code, or link — built for multilingual networks.',
+};
+
+export const viewport: Viewport = {
+  themeColor: '#FF5722',
 };
 
 export default function RootLayout({
@@ -19,6 +23,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://api.fontshare.com" crossOrigin="anonymous" />
         <link
           href="https://api.fontshare.com/v2/css?f[]=satoshi@400,500,700,900&display=swap"
+          rel="stylesheet"
+        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@500;700&display=swap"
           rel="stylesheet"
         />
       </head>

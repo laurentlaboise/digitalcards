@@ -18,7 +18,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
     return { title: 'Card Not Found' };
   }
 
-  const title = `${card.fullName}${card.jobTitle ? ` — ${card.jobTitle}` : ''} | Digital Card`;
+  const title = `${card.fullName}${card.jobTitle ? ` — ${card.jobTitle}` : ''} | TapCard`;
   const description = card.bio || `${card.fullName}'s digital business card. Scan the QR code to save contact.`;
 
   return {
@@ -28,7 +28,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title,
       description,
       type: 'profile',
-      siteName: 'Digital Card Platform',
+      siteName: 'TapCard',
     },
     twitter: {
       card: 'summary_large_image',

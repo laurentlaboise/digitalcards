@@ -1,4 +1,4 @@
-# DigitalCards Deployment Guide
+# TapCard Deployment Guide
 
 ## Current Status
 

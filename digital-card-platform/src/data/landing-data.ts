@@ -338,7 +338,7 @@ export const INTEGRATION_ITEMS = [
 
 export const API_CODE_EXAMPLES = {
   curl: `# Create a new digital business card
-curl -X POST https://api.popl.co/v1/cards \\
+curl -X POST https://api.tapcard.asia/v1/cards \\
   -H "Authorization: Bearer YOUR_API_KEY" \\
   -H "Content-Type: application/json" \\
   -d '{
@@ -350,10 +350,10 @@ curl -X POST https://api.popl.co/v1/cards \\
     "template": "enterprise-dark"
   }'`,
   javascript: `// Create a card and fetch leads using the JS SDK
-import { PoplClient } from '@popl/sdk';
+import { TapCardClient } from '@tapcard/sdk';
 
-const client = new PoplClient({
-  apiKey: process.env.POPL_API_KEY,
+const client = new TapCardClient({
+  apiKey: process.env.TAPCARD_API_KEY,
 });
 
 // Create a new card
@@ -374,9 +374,9 @@ const leads = await client.leads.list({
 
 console.log(\`Captured \${leads.total} leads\`);`,
   python: `# Build a data pipeline with the Python SDK
-from popl import PoplClient
+from tapcard import TapCardClient
 
-client = PoplClient(api_key="YOUR_API_KEY")
+client = TapCardClient(api_key="YOUR_API_KEY")
 
 # Create a card programmatically
 card = client.cards.create(
@@ -419,9 +419,9 @@ export const FAQ_ITEMS = [
   {
     id: '1',
     category: 'General',
-    question: 'What is Popl and how does it work?',
+    question: 'What is TapCard and how does it work?',
     answer:
-      'Popl is the #1 digital business card platform for lead capture. Create a digital profile, share it via NFC, QR code, link, or wallet pass, and instantly capture contact information from anyone you meet. No app needed for recipients.',
+      'TapCard is a digital business card platform for sharing contacts and capturing leads. Create a digital profile, share it via NFC, QR code, or link, and let anyone save your contact information. No app needed for recipients.',
   },
   {
     id: '2',
@@ -512,14 +512,14 @@ export const FAQ_ITEMS = [
     category: 'Integrations',
     question: 'How do I set up a Zapier integration?',
     answer:
-      'Search for "Popl" in the Zapier app directory, connect your account with your API key, and choose from pre-built triggers (card viewed, lead captured, contact saved) and actions (create card, update card, export leads).',
+      'Search for "TapCard" in the Zapier app directory, connect your account with your API key, and choose from pre-built triggers (card viewed, lead captured, contact saved) and actions (create card, update card, export leads).',
   },
   {
     id: '15',
     category: 'API & Developers',
     question: 'How do I connect to the public API?',
     answer:
-      'Sign up for a developer account, generate an API key from your dashboard, and make requests to api.popl.co/v1. Our API uses RESTful conventions with JSON payloads and supports OAuth2 for production integrations.',
+      'Sign up for a developer account, generate an API key from your dashboard, and make requests to the TapCard API. Our API uses RESTful conventions with JSON payloads and supports OAuth2 for production integrations.',
   },
   {
     id: '16',
@@ -531,23 +531,23 @@ export const FAQ_ITEMS = [
   {
     id: '17',
     category: 'API & Developers',
-    question: 'How do I set up an n8n workflow with Popl?',
+    question: 'How do I set up an n8n workflow with TapCard?',
     answer:
-      'Install the Popl n8n community node, authenticate with your API key, and use triggers like "Card Viewed" or "Lead Captured" to start workflows. Common automations include routing leads to CRMs, sending Slack notifications, and syncing to spreadsheets.',
+      'Install the TapCard n8n community node, authenticate with your API key, and use triggers like "Card Viewed" or "Lead Captured" to start workflows. Common automations include routing leads to CRMs, sending Slack notifications, and syncing to spreadsheets.',
   },
   {
     id: '18',
     category: 'API & Developers',
     question: 'How do I create a Make.com scenario?',
     answer:
-      'Add the Popl module to your Make.com scenario, connect with your API key, and choose from available triggers and actions. Build multi-step scenarios with conditional logic to automate lead routing, card creation from HR systems, and data synchronization.',
+      'Add the TapCard module to your Make.com scenario, connect with your API key, and choose from available triggers and actions. Build multi-step scenarios with conditional logic to automate lead routing, card creation from HR systems, and data synchronization.',
   },
   {
     id: '19',
     category: 'API & Developers',
     question: 'How do I build an Airtable pipeline?',
     answer:
-      'Use our native Airtable integration or connect via API. Set up two-way sync between your Popl contacts and Airtable bases. Configure field mappings, sync schedules, and use Airtable automations for data enrichment and notifications.',
+      'Use our native Airtable integration or connect via API. Set up two-way sync between your TapCard contacts and Airtable bases. Configure field mappings, sync schedules, and use Airtable automations for data enrichment and notifications.',
   },
   {
     id: '20',
@@ -568,7 +568,7 @@ export const FAQ_ITEMS = [
     category: 'Enterprise',
     question: 'Can we white-label the platform?',
     answer:
-      'Yes. Enterprise plans include full white-labeling — custom domain, branded card templates, custom email domains, and removal of Popl branding. Contact our sales team for details.',
+      'Yes. Enterprise plans include full white-labeling — custom domain, branded card templates, custom email domains, and removal of TapCard branding. Contact our sales team for details.',
   },
   {
     id: '23',
@@ -603,7 +603,7 @@ export const FAQ_ITEMS = [
     category: 'Support',
     question: 'Is there a status page for uptime monitoring?',
     answer:
-      'Yes. Visit status.popl.co for real-time infrastructure status, incident history, and maintenance notifications. Subscribe to get alerted about any service disruptions.',
+      'Yes. The TapCard status page shows real-time infrastructure status, incident history, and maintenance notifications. Subscribe to get alerted about any service disruptions.',
   },
   {
     id: '28',

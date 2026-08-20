@@ -56,8 +56,8 @@ async function bootstrap() {
   // Swagger API Documentation
   if (configService.get('nodeEnv') !== 'production') {
     const swaggerConfig = new DocumentBuilder()
-      .setTitle('DigitalCards API')
-      .setDescription('NFC Business Card SaaS Platform API')
+      .setTitle('TapCard API')
+      .setDescription('TapCard digital business card platform API')
       .setVersion('1.0')
       .addBearerAuth()
       .addTag('Auth', 'Authentication endpoints')

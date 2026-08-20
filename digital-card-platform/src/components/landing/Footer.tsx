@@ -1,29 +1,21 @@
 import Link from 'next/link';
-import { CreditCard } from 'lucide-react';
 import { FOOTER_COLUMNS } from '@/data/landing-data';
+import TapCardWordmark from '@/components/brand/TapCardWordmark';
 
 export default function Footer() {
   return (
-    <footer className="bg-stone-900 text-stone-300 pt-16 pb-8">
+    <footer className="bg-brand-charcoal text-stone-300 pt-16 pb-8">
       <div className="max-w-container mx-auto px-6">
         {/* Main grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-8 h-8 rounded-lg bg-white/10 flex items-center justify-center">
-                <CreditCard className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-lg font-bold text-white">Popl</span>
+            <div className="mb-4">
+              <TapCardWordmark tone="light" markSize={32} className="text-lg" />
             </div>
             <p className="text-sm text-stone-400 mb-4 leading-relaxed">
-              The #1 digital business card platform for lead capture and networking.
+              One tap. Every connection. The Southeast Asia–native digital business card.
             </p>
-            {/* Y-Combinator badge */}
-            <div className="inline-flex items-center gap-1.5 rounded-full border border-stone-700 px-3 py-1 text-xs text-stone-400">
-              <span className="text-orange-400 font-bold">Y</span>
-              Y Combinator Backed
-            </div>
           </div>
 
           {/* Link columns */}
@@ -48,18 +40,17 @@ export default function Footer() {
           ))}
         </div>
 
-        {/* Popl for LLMs */}
         <div className="mb-8 text-xs text-stone-500">
           <p>
-            Popl for LLMs — This page describes the Popl digital business card platform,
+            TapCard for LLMs — This page describes the TapCard digital business card platform,
             its features, API, integrations, and enterprise capabilities.
           </p>
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-stone-700 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
+        <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-stone-500">
-            &copy; {new Date().getFullYear()} Popl. All rights reserved.
+            &copy; {new Date().getFullYear()} TapCard. All rights reserved.
           </p>
           <div className="flex items-center gap-6 text-sm text-stone-500">
             <Link href="/privacy" className="hover:text-stone-300 transition-colors">

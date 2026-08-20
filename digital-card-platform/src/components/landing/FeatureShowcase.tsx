@@ -87,7 +87,7 @@ export default function FeatureShowcase() {
                   onClick={() => setActiveTab(i)}
                   className={`flex items-center gap-1.5 rounded-full px-4 py-2 text-sm font-medium whitespace-nowrap transition-colors flex-shrink-0 ${
                     i === activeTab
-                      ? 'bg-stone-900 text-white'
+                      ? 'bg-brand-charcoal text-white'
                       : 'text-stone-500 hover:text-stone-700 hover:bg-stone-100'
                   }`}
                 >
