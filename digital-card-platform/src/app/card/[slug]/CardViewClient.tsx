@@ -16,8 +16,11 @@ export default function CardViewClient({ card }: CardViewClientProps) {
       <BusinessCard card={card} />
       <ShareButton
         url={url}
-        title={`${card.fullName}'s Digital Business Card`}
+        title={`${card.fullName}'s TapCard`}
       />
+      <p className="mt-8 mb-6 text-center text-xs text-brand-charcoal/70">
+        Made with <span className="font-brand">TapCard<span className="text-brand-orange">.</span></span>
+      </p>
     </>
   );
 }

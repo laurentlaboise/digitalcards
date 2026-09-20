@@ -22,21 +22,22 @@ This plan consolidates three sources: the lao.one implementation paper (20-page 
 | Domain | tapcard.asia |
 | Tagline | "One tap. Every connection." *(working — finalize in Figma brand exploration)* |
 | Subtitle | "The Southeast Asia–native digital business card" |
-| Primary color | Warm gold `#C9A84C` |
-| Secondary | Deep indigo `#1B2A6B` |
-| Neutrals | White `#FFFFFF`, soft gray `#F5F5F5`, ink `#1C1917` |
-| Typography | **Inter** (Latin UI) + **Noto Sans Lao / Thai / Khmer / Myanmar** for scripts |
+| Primary color | Orange `#FF5722` |
+| Secondary | Charcoal `#303942` |
+| Neutrals | White `#FFFFFF`, soft gray `#F5F5F5`, charcoal `#303942` |
+| Typography | **ITC Bauhaus** (wordmark) + Inter / Satoshi (UI) + **Noto Sans Lao / Thai / Khmer / Myanmar** for scripts |
+| Mark | Orange squircle + white scribble; orange period on **TapCard.** |
+| Do not use | Gold `#C9A84C`, indigo `#1B2A6B`, or sister lao.services magenta `#D40E54` |
 | Shape | Rounded 12–16px radius, smooth micro-animations, 320px min width |
 | Modes | Light + dark mode from day one |
 | Card footer | "Made with TapCard" — free tier only, subtle |
 | Tone | Warm, relationship-driven, multilingual storytelling — not corporate CRM |
 
-**Rebrand cleanup required in this repo** (currently inconsistent):
-- `digital-card-platform/src/components/landing/Header.tsx` — hardcoded "Popl" → TapCard
-- Root `index.html` + `README.md` — "DigitalCards" → TapCard
-- `CNAME` → izzi.work → decide: repoint to tapcard.asia or retire
-- Two conflicting palettes (cream Tailwind theme vs red/maroon Prisma card defaults) → replace with gold/indigo tokens
-- Favicons/logo → new TapCard mark (also used as QR center logo)
+**Rebrand cleanup** (T1 product-name + brand lock is in; do not invent DNS/payment/deploy changes):
+- Landing, auth, dashboard chrome, README, and `index.html` now say **TapCard** (not Popl / DigitalCards)
+- Brand tokens: orange `#FF5722` / charcoal `#303942`; orange squircle + white scribble; orange period on the wordmark
+- `CNAME` → izzi.work remains unchanged until a later DNS decision
+- Favicons/logo: Next `icon.svg` + landing mark use the orange squircle; QR-center logo can follow later
 
 ## 3. Domain & URL Architecture
 
@@ -146,4 +147,4 @@ Mobile web app (iOS/Android PWA) · multi-language · contact info · personal +
 
 ## 10. Kickoff Prompt for the Build Session
 
-> Read TAPCARD_PLAN.md in laurentlaboise/digitalcards. Execute Phase 0 + Phase 1: rebrand the repo to TapCard (tapcard.asia), consolidate the Next.js app as the sole frontend calling the NestJS API, deploy the backend + Postgres + Redis to Railway, deploy the frontend to Vercel with SSR card pages, implement the MVP feature list exactly as specified (14-block card layout, QR + vCard, 9 social platforms, 5 languages, free-tier rules), and import the 23 lao.one profiles from my Google Sheets as seed users. Design each screen in Figma first using the Brand Foundations tokens (gold #C9A84C / indigo #1B2A6B, Inter + Noto Sans), then implement from the Figma designs. Use agents to parallelize.
+> Read TAPCARD_PLAN.md in laurentlaboise/digitalcards. Execute Phase 0 + Phase 1: rebrand the repo to TapCard (tapcard.asia), consolidate the Next.js app as the sole frontend calling the NestJS API, deploy the backend + Postgres + Redis to Railway, deploy the frontend to Vercel with SSR card pages, implement the MVP feature list exactly as specified (14-block card layout, QR + vCard, 9 social platforms, 5 languages, free-tier rules), and import the 23 lao.one profiles from my Google Sheets as seed users. Design each screen in Figma first using the Brand Foundations tokens (orange #FF5722 / charcoal #303942, ITC Bauhaus wordmark + Inter / Noto Sans), then implement from the Figma designs. Use agents to parallelize.

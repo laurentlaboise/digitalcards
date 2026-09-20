@@ -84,7 +84,7 @@ export class FulfillmentProcessor extends WorkerHost {
       },
       body: JSON.stringify({
         address_from: {
-          name: 'DigitalCards Fulfillment',
+          name: 'TapCard Fulfillment',
           street1: '123 Fulfillment Way',
           city: 'San Francisco',
           state: 'CA',

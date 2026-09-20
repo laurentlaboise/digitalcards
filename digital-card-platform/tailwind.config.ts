@@ -17,9 +17,14 @@ const config: Config = {
         'border-subtle': '#E7E5E4',
         surface: '#FAFAF9',
         background: "var(--background)",
+        brand: {
+          orange: '#FF5722',
+          charcoal: '#303942',
+        },
       },
       fontFamily: {
         sans: ['Satoshi', 'Inter', 'system-ui', 'sans-serif'],
+        brand: ['"ITC Bauhaus"', '"Bauhaus 93"', 'Comfortaa', 'sans-serif'],
       },
       maxWidth: {
         container: '1200px',

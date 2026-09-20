@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
-import { CreditCard, Menu } from 'lucide-react';
+import { Menu } from 'lucide-react';
 import { NAV_LINKS } from '@/data/landing-data';
+import TapCardWordmark from '@/components/brand/TapCardWordmark';
 import MobileNav from './MobileNav';
 
 export default function Header() {
@@ -27,11 +28,8 @@ export default function Header() {
       >
         <div className="max-w-container mx-auto px-6 flex items-center justify-between h-16">
           {/* Logo */}
-          <Link href="/" className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-stone-900 flex items-center justify-center">
-              <CreditCard className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-lg font-bold text-stone-900">Popl</span>
+          <Link href="/" className="flex items-center">
+            <TapCardWordmark markSize={32} className="text-lg" />
           </Link>
 
           {/* Desktop nav */}
@@ -57,7 +55,7 @@ export default function Header() {
             </Link>
             <Link
               href="/register"
-              className="rounded-full bg-stone-900 text-white px-5 py-2 text-sm font-medium hover:bg-stone-800 transition-colors"
+              className="rounded-full bg-brand-orange text-white px-5 py-2 text-sm font-medium hover:bg-[#e64a19] transition-colors"
             >
               Get a demo
             </Link>

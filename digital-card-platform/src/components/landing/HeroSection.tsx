@@ -15,8 +15,8 @@ export default function HeroSection() {
       <div className="max-w-container mx-auto px-6 text-center">
         {/* Social proof pill */}
         <div className="inline-flex items-center gap-2 rounded-full bg-stone-100 border border-stone-200 px-4 py-2 text-sm text-stone-600 mb-8">
-          <span className="inline-block w-2 h-2 rounded-full bg-emerald-500" />
-          2.5M+ professionals trust Popl
+          <span className="inline-block w-2 h-2 rounded-full bg-brand-orange" />
+          One tap. Every connection.
         </div>
 
         {/* H1 */}
@@ -34,7 +34,7 @@ export default function HeroSection() {
         <div className="flex items-center justify-center gap-4 flex-wrap mb-16">
           <Link
             href="/register"
-            className="rounded-full bg-stone-900 text-white px-8 py-4 text-base font-medium hover:bg-stone-800 transition-colors shadow-lg shadow-stone-900/10"
+            className="rounded-full bg-brand-orange text-white px-8 py-4 text-base font-medium hover:bg-[#e64a19] transition-colors shadow-lg shadow-brand-orange/20"
           >
             Get started free
           </Link>
