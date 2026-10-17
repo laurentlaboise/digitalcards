@@ -1,46 +1,16 @@
-FROM node:20-alpine AS base
-
-# Install dependencies only when needed
-FROM base AS deps
-RUN apk add --no-cache libc6-compat
+FROM node:20-alpine
+RUN apk add --no-cache libc6-compat openssl
 WORKDIR /app
+
 COPY package.json package-lock.json ./
 RUN npm ci
 
-# Generate Prisma client
-COPY prisma ./prisma
-ENV DATABASE_URL="postgresql://user:pass@localhost:5432/db"
-RUN npx prisma generate
-
-# Build the application
-FROM base AS builder
-WORKDIR /app
-COPY --from=deps /app/node_modules ./node_modules
 COPY . .
-RUN mkdir -p public && npm run build
-
-# Production image
-FROM base AS runner
-WORKDIR /app
+RUN mkdir -p public
+ENV DATABASE_URL="postgresql://user:pass@localhost:5432/db"
+RUN npx prisma generate && npm run build
 
 ENV NODE_ENV=production
-
-RUN addgroup --system --gid 1001 nodejs
-RUN adduser --system --uid 1001 nextjs
-
-COPY --from=builder /app/public ./public
-COPY --from=builder /app/.next/standalone ./
-COPY --from=builder /app/.next/static ./.next/static
-COPY --from=builder /app/prisma ./prisma
-COPY --from=builder /app/node_modules/.prisma ./node_modules/.prisma
-COPY --from=builder /app/node_modules/@prisma ./node_modules/@prisma
-
-RUN mkdir -p public/uploads && chown -R nextjs:nodejs public/uploads
-
-USER nextjs
-
 EXPOSE 3000
-ENV PORT=3000
-ENV HOSTNAME="0.0.0.0"
 
-CMD ["node", "server.js"]
+CMD ["sh", "-c", "npx prisma db push --skip-generate && npx next start -H 0.0.0.0 -p ${PORT:-3000}"]
