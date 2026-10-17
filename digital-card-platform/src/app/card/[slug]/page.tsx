@@ -60,10 +60,26 @@ export default async function CardPage({ params }: Props) {
   });
 
   const cardData = {
-    ...card,
+    id: card.id,
+    slug: card.slug,
+    fullName: card.fullName,
+    jobTitle: card.jobTitle,
+    company: card.company,
+    bio: card.bio,
+    email: card.email,
+    phone: card.phone,
+    website: card.website,
+    address: card.address,
+    avatarUrl: card.avatarUrl,
+    bannerUrl: card.bannerUrl,
+    socialLinks: card.socialLinks as Record<string, string> | null,
+    primaryColor: card.primaryColor,
+    accentColor: card.accentColor,
+    backgroundColor: card.backgroundColor,
+    viewCount: card.viewCount,
+    isPublished: card.isPublished,
     createdAt: card.createdAt.toISOString(),
     updatedAt: card.updatedAt.toISOString(),
-    socialLinks: card.socialLinks as Record<string, string> | null,
   };
 
   return <CardViewClient card={cardData} />;

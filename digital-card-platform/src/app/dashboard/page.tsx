@@ -59,10 +59,10 @@ export default function DashboardPage() {
       {/* Welcome Header */}
       <div className="mb-8">
         <h1 className="text-3xl font-bold text-white mb-2">
-          Welcome back! 👋
+          Your cards
         </h1>
         <p className="text-gray-400">
-          Manage your digital business cards and track engagement
+          Publish a card, share the link, then read names in Customers.
         </p>
       </div>
 

@@ -1,26 +1,34 @@
 'use client';
 
-import BusinessCard from '@/components/BusinessCard';
+import { useEffect, useState } from 'react';
+import LeadCaptureForm from '@/components/LeadCaptureForm';
+import PublicCard from '@/components/PublicCard';
 import ShareButton from '@/components/ShareButton';
 import { CardData } from '@/types';
 
-interface CardViewClientProps {
-  card: CardData;
-}
+export default function CardViewClient({ card }: { card: CardData }) {
+  const [url, setUrl] = useState('');
 
-export default function CardViewClient({ card }: CardViewClientProps) {
-  const url = typeof window !== 'undefined' ? window.location.href : '';
+  useEffect(() => {
+    setUrl(window.location.href);
+  }, []);
 
   return (
-    <>
-      <BusinessCard card={card} />
-      <ShareButton
-        url={url}
-        title={`${card.fullName}'s TapCard`}
-      />
-      <p className="mt-8 mb-6 text-center text-xs text-brand-charcoal/70">
-        Made with <span className="font-brand">TapCard<span className="text-brand-orange">.</span></span>
-      </p>
-    </>
+    <div
+      className="min-h-dvh overflow-x-hidden bg-[#0C1330] pb-[max(2rem,env(safe-area-inset-bottom))] pl-[max(1rem,env(safe-area-inset-left))] pr-[max(1rem,env(safe-area-inset-right))] pt-8 sm:pt-12"
+      style={{
+        backgroundImage:
+          'radial-gradient(70rem 32rem at 50% -8%, rgba(201,168,76,.22), transparent 62%)',
+      }}
+    >
+      <div className="mx-auto flex w-full max-w-[400px] flex-col">
+        <PublicCard card={card} />
+        <ShareButton url={url} title={`${card.fullName}'s TapCard`} inline />
+        <LeadCaptureForm slug={card.slug} ownerName={card.fullName} />
+        <p className="mb-2 mt-6 text-center text-xs text-white/60">
+          Made with TapCard
+        </p>
+      </div>
+    </div>
   );
 }

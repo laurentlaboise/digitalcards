@@ -8,7 +8,7 @@ interface ShareButtonProps {
   title: string;
 }
 
-export default function ShareButton({ url, title }: ShareButtonProps) {
+export default function ShareButton({ url, title, inline = false }: ShareButtonProps & { inline?: boolean }) {
   const [copied, setCopied] = useState(false);
 
   const handleShare = async () => {
@@ -28,7 +28,11 @@ export default function ShareButton({ url, title }: ShareButtonProps) {
   return (
     <button
       onClick={handleShare}
-      className="fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-white/90 px-4 py-3 text-sm font-medium text-gray-800 shadow-lg backdrop-blur transition-all hover:bg-white hover:shadow-xl"
+      className={
+        inline
+          ? 'mt-4 flex min-h-11 w-full items-center justify-center gap-2 rounded-full border border-white/25 px-4 py-3 text-sm font-medium text-white'
+          : 'fixed bottom-6 right-6 z-50 flex items-center gap-2 rounded-full bg-white/90 px-4 py-3 text-sm font-medium text-gray-800 shadow-lg backdrop-blur transition-all hover:bg-white hover:shadow-xl'
+      }
     >
       {copied ? (
         <>

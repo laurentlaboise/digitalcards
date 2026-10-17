@@ -103,8 +103,47 @@ async function main() {
     },
   });
 
+  const demo = await prisma.card.upsert({
+    where: { slug: 'demo' },
+    update: { isPublished: true },
+    create: {
+      slug: 'demo',
+      userId: user.id,
+      fullName: 'Noy Sisavath',
+      jobTitle: 'Studio owner',
+      company: 'Mekong Stitch',
+      bio: 'Sample card for TapCard. Clothes and alterations in Vientiane. This person is invented.',
+      email: 'noy@example.com',
+      phone: '+856 20 555 000 11',
+      address: 'Vientiane, Laos',
+      primaryColor: '#FF5722',
+      accentColor: '#303942',
+      backgroundColor: '#1a1f24',
+      isPublished: true,
+    },
+  });
+
+  const sample = await prisma.lead.findFirst({
+    where: { cardId: demo.id, email: 'kham@example.com' },
+  });
+  if (!sample) {
+    await prisma.lead.create({
+      data: {
+        cardId: demo.id,
+        name: 'Kham Phommasane',
+        email: 'kham@example.com',
+        phone: '+856 20 999 111 22',
+        company: 'Riverside Cafe',
+        note: 'Asked about a menu card for the cafe. Invented sample.',
+        source: 'card',
+        status: 'new',
+      },
+    });
+  }
+
   console.log('Seed data created successfully!');
   console.log('Demo login: demo@digitalcard.io / demo1234');
+  console.log('Sample card: /card/demo');
 }
 
 main()

@@ -1,9 +1,8 @@
 export const NAV_LINKS = [
-  { label: 'Product', href: '#features' },
-  { label: 'Solutions', href: '#solutions' },
-  { label: 'Developers', href: '#developers' },
+  { label: 'How it works', href: '/how-it-works' },
+  { label: 'Get customers', href: '/get-customers' },
   { label: 'Pricing', href: '/pricing' },
-  { label: 'Resources', href: '#resources' },
+  { label: 'Live card', href: '/card/demo' },
 ];
 
 export const FEATURE_TABS = [
@@ -618,44 +617,25 @@ export const FOOTER_COLUMNS = [
   {
     title: 'Product',
     links: [
-      { label: 'Digital Business Cards', href: '#features' },
-      { label: 'NFC Cards', href: '#features' },
-      { label: 'QR Codes', href: '#features' },
-      { label: 'Apple Wallet', href: '#features' },
-      { label: 'Email Signatures', href: '#features' },
-      { label: 'Team Management', href: '#features' },
+      { label: 'How it works', href: '/how-it-works' },
+      { label: 'Live card', href: '/card/demo' },
+      { label: 'Make a card', href: '/register' },
     ],
   },
   {
-    title: 'Solutions',
+    title: 'Customers',
     links: [
-      { label: 'Enterprise', href: '#enterprise' },
-      { label: 'Small Business', href: '#solutions' },
-      { label: 'Sales Teams', href: '#solutions' },
-      { label: 'Marketing', href: '#solutions' },
-      { label: 'Real Estate', href: '#solutions' },
-      { label: 'Conferences', href: '#solutions' },
+      { label: 'How you get customers', href: '/get-customers' },
+      { label: 'Pricing', href: '/pricing' },
+      { label: 'Sign in', href: '/login' },
     ],
   },
   {
-    title: 'Resources',
+    title: 'Desk',
     links: [
-      { label: 'Blog', href: '/blog' },
-      { label: 'Help Center', href: '/support' },
-      { label: 'API Docs', href: '/docs/api' },
-      { label: 'API Boilerplate', href: '/docs/boilerplate' },
-      { label: 'Integration Guides', href: '/docs/integrations' },
-      { label: 'Case Studies', href: '/case-studies' },
-    ],
-  },
-  {
-    title: 'Company',
-    links: [
-      { label: 'About', href: '/about' },
-      { label: 'Careers', href: '/careers' },
-      { label: 'Press', href: '/press' },
-      { label: 'Contact', href: '/contact' },
-      { label: 'Partners', href: '/partners' },
+      { label: 'Customer inbox', href: '/dashboard/leads' },
+      { label: 'Privacy', href: '/privacy' },
+      { label: 'Terms', href: '/terms' },
     ],
   },
 ];

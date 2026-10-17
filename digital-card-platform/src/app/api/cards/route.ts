@@ -3,6 +3,7 @@ import { getServerSession } from 'next-auth';
 import { authOptions } from '@/lib/auth';
 import prisma from '@/lib/prisma';
 import { generateSlug } from '@/lib/utils';
+import { cardLimit } from '@/lib/plans';
 
 export async function GET() {
   const session = await getServerSession(authOptions);
@@ -27,6 +28,15 @@ export async function POST(req: NextRequest) {
 
   try {
     const userId = (session.user as { id: string }).id;
+    const owner = await prisma.user.findUnique({ where: { id: userId } });
+    const count = await prisma.card.count({ where: { userId } });
+    const limit = cardLimit(owner?.plan, owner?.subscriptionStatus);
+    if (count >= limit) {
+      return NextResponse.json(
+        { error: `This plan includes ${limit} card${limit === 1 ? '' : 's'}. Upgrade on the prices page.` },
+        { status: 403 },
+      );
+    }
     const data = await req.json();
 
     let slug = data.slug || generateSlug(data.fullName);

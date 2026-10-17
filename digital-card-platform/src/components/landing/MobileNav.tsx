@@ -76,7 +76,7 @@ export default function MobileNav({ isOpen, onClose }: MobileNavProps) {
             onClick={onClose}
             className="rounded-full bg-brand-orange text-white text-center px-8 py-4 text-base font-medium"
           >
-            Get a demo
+            Make a card
           </Link>
         </div>
       </div>

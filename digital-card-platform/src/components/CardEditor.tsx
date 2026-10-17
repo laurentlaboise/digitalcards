@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
-import BusinessCard from './BusinessCard';
+import PublicCard from './PublicCard';
 import ThemePicker from './ThemePicker';
 import ImageUploader from './ImageUploader';
 import { CardFormData, SocialLinks, CardData } from '@/types';
@@ -222,7 +222,7 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
     <div className="flex flex-col lg:flex-row gap-8">
       {/* Left Panel - Form */}
       <div className="flex-1 space-y-6">
-        <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-6">
+        <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-4 sm:p-6">
           <h2 className="text-lg font-semibold text-white mb-4">Personal Info</h2>
 
           <div className="space-y-4">
@@ -234,12 +234,12 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
                 type="text"
                 value={form.fullName}
                 onChange={(e) => updateField('fullName', e.target.value)}
-                className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-sm"
+                className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-base sm:text-sm"
                 placeholder="John Doe"
               />
             </div>
 
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-1">
                   Job Title
@@ -248,7 +248,7 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
                   type="text"
                   value={form.jobTitle}
                   onChange={(e) => updateField('jobTitle', e.target.value)}
-                  className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-sm"
+                  className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-base sm:text-sm"
                   placeholder="Software Engineer"
                 />
               </div>
@@ -260,7 +260,7 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
                   type="text"
                   value={form.company}
                   onChange={(e) => updateField('company', e.target.value)}
-                  className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-sm"
+                  className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-base sm:text-sm"
                   placeholder="Acme Inc."
                 />
               </div>
@@ -273,7 +273,7 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
               <textarea
                 value={form.bio}
                 onChange={(e) => updateField('bio', e.target.value)}
-                className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-sm"
+                className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-base sm:text-sm"
                 placeholder="A brief introduction..."
                 rows={3}
               />
@@ -281,10 +281,10 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
           </div>
         </div>
 
-        <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-6">
+        <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-4 sm:p-6">
           <h2 className="text-lg font-semibold text-white mb-4">Contact Info</h2>
           <div className="space-y-4">
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
               <div>
                 <label className="block text-sm font-medium text-gray-300 mb-1">
                   Email
@@ -293,7 +293,7 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
                   type="email"
                   value={form.email}
                   onChange={(e) => updateField('email', e.target.value)}
-                  className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-sm"
+                  className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-base sm:text-sm"
                   placeholder="john@example.com"
                 />
               </div>
@@ -305,7 +305,7 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
                   type="tel"
                   value={form.phone}
                   onChange={(e) => updateField('phone', e.target.value)}
-                  className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-sm"
+                  className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-base sm:text-sm"
                   placeholder="+1 (555) 123-4567"
                 />
               </div>
@@ -318,7 +318,7 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
                 type="url"
                 value={form.website}
                 onChange={(e) => updateField('website', e.target.value)}
-                className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-sm"
+                className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-base sm:text-sm"
                 placeholder="https://example.com"
               />
             </div>
@@ -330,14 +330,14 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
                 type="text"
                 value={form.address}
                 onChange={(e) => updateField('address', e.target.value)}
-                className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-sm"
+                className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-base sm:text-sm"
                 placeholder="123 Main St, City, State"
               />
             </div>
           </div>
         </div>
 
-        <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-6">
+        <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-4 sm:p-6">
           <h2 className="text-lg font-semibold text-white mb-4">Social Links</h2>
           <div className="flex flex-wrap gap-2 mb-4">
             {SOCIAL_FIELDS.map(({ key, label }) => (
@@ -375,7 +375,7 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
                   type="url"
                   value={(form.socialLinks as Record<string, string>)[key] || ''}
                   onChange={(e) => updateSocialLink(key, e.target.value)}
-                  className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-sm"
+                  className="w-full rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-base sm:text-sm"
                   placeholder={`https://${key}.com/username`}
                 />
               </div>
@@ -383,9 +383,9 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
           </div>
         </div>
 
-        <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-6">
+        <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-4 sm:p-6">
           <h2 className="text-lg font-semibold text-white mb-4">Images</h2>
-          <div className="flex gap-6">
+          <div className="flex flex-col gap-6 sm:flex-row">
             <ImageUploader
               label="Avatar"
               currentUrl={avatarUrl}
@@ -403,7 +403,7 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
           </div>
         </div>
 
-        <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-6">
+        <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-4 sm:p-6">
           <h2 className="text-lg font-semibold text-white mb-4">Theme</h2>
           <ThemePicker
             currentPrimary={form.primaryColor}
@@ -444,7 +444,7 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
           </div>
         </div>
 
-        <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-6">
+        <div className="rounded-xl border border-gray-700 bg-gray-800/50 p-4 sm:p-6">
           <h2 className="text-lg font-semibold text-white mb-4">Settings</h2>
           <div className="space-y-4">
             <div>
@@ -457,7 +457,7 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
                   type="text"
                   value={form.slug}
                   onChange={(e) => updateField('slug', e.target.value.toLowerCase().replace(/[^a-z0-9-]/g, '-'))}
-                  className="flex-1 rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-sm"
+                  className="flex-1 rounded-lg bg-gray-700 border border-gray-600 px-4 py-2.5 text-white placeholder-gray-400 focus:border-red-500 focus:outline-none text-base sm:text-sm"
                   placeholder="john-doe"
                 />
               </div>
@@ -484,7 +484,7 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
         </div>
 
         {/* Save Button */}
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4">
           <button
             onClick={() => handleSave()}
             disabled={saving}
@@ -504,13 +504,10 @@ export default function CardEditor({ cardId, initialData }: CardEditorProps) {
       </div>
 
       {/* Right Panel - Live Preview */}
-      <div className="lg:w-[380px] lg:sticky lg:top-24 lg:self-start">
+      <div className="mx-auto w-full max-w-[400px] lg:sticky lg:top-24 lg:mx-0 lg:w-[400px] lg:self-start">
         <h2 className="text-lg font-semibold text-white mb-4">Live Preview</h2>
-        <div
-          className="rounded-xl overflow-hidden"
-          style={{ backgroundColor: form.backgroundColor }}
-        >
-          <BusinessCard card={previewCard} isPreview />
+        <div className="rounded-xl bg-[#0C1330] p-4">
+          <PublicCard card={previewCard} />
         </div>
       </div>
     </div>

@@ -7,7 +7,7 @@ export default function Footer() {
     <footer className="bg-brand-charcoal text-stone-300 pt-16 pb-8">
       <div className="max-w-container mx-auto px-6">
         {/* Main grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-10 mb-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           {/* Brand column */}
           <div className="sm:col-span-2 lg:col-span-1">
             <div className="mb-4">
@@ -42,15 +42,15 @@ export default function Footer() {
 
         <div className="mb-8 text-xs text-stone-500">
           <p>
-            TapCard for LLMs — This page describes the TapCard digital business card platform,
-            its features, API, integrations, and enterprise capabilities.
+            TapCard is a digital business card. Pro and Business charge only after you
+            confirm on Stripe. This site does not send email.
           </p>
         </div>
 
         {/* Bottom bar */}
         <div className="border-t border-white/10 pt-8 flex flex-col md:flex-row items-center justify-between gap-4">
           <p className="text-sm text-stone-500">
-            &copy; {new Date().getFullYear()} TapCard. All rights reserved.
+            &copy; {new Date().getFullYear()} TapCard. Laboise eworker Laos enterprise.
           </p>
           <div className="flex items-center gap-6 text-sm text-stone-500">
             <Link href="/privacy" className="hover:text-stone-300 transition-colors">

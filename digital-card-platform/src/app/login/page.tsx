@@ -29,7 +29,9 @@ export default function LoginPage() {
       setError(result.error);
       setLoading(false);
     } else {
-      router.push('/dashboard');
+      const callback = new URLSearchParams(window.location.search).get('callbackUrl') || '';
+      const dest = callback.startsWith('/') && !callback.startsWith('//') ? callback : '/dashboard';
+      router.push(dest);
     }
   };
 
@@ -128,13 +130,6 @@ export default function LoginPage() {
             </p>
           </div>
         </form>
-
-        {/* Demo credentials hint */}
-        <div className="mt-6 text-center">
-          <p className="text-xs text-gray-500">
-            Demo: demo@digitalcard.io / demo1234
-          </p>
-        </div>
       </div>
     </div>
   );

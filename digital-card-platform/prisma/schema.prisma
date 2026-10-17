@@ -8,13 +8,17 @@ datasource db {
 }
 
 model User {
-  id        String   @id @default(cuid())
-  email     String   @unique
-  password  String
-  name      String
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
-  cards     Card[]
+  id                   String   @id @default(cuid())
+  email                String   @unique
+  password             String
+  name                 String
+  plan                 String   @default("free")
+  subscriptionStatus   String?
+  stripeCustomerId     String?  @unique
+  stripeSubscriptionId String?  @unique
+  createdAt            DateTime @default(now())
+  updatedAt            DateTime @updatedAt
+  cards                Card[]
 }
 
 model Card {
@@ -50,6 +54,39 @@ model Card {
   updatedAt       DateTime @updatedAt
 
   scans           ContactScan[]
+  leads           Lead[]
+}
+
+// Someone who left their details on a public card. This is the card owner's customer.
+model Lead {
+  id        String   @id @default(cuid())
+  cardId    String
+  card      Card     @relation(fields: [cardId], references: [id], onDelete: Cascade)
+  name      String
+  email     String?
+  phone     String?
+  company   String?
+  note      String?  @db.Text
+  source    String   @default("card")
+  status    String   @default("new")
+  createdAt DateTime @default(now())
+
+  @@index([cardId, createdAt])
+}
+
+// Someone asking TapCard for a card. This is how TapCard itself gets customers.
+model Inquiry {
+  id        String   @id @default(cuid())
+  name      String
+  email     String
+  phone     String?
+  company   String?
+  country   String?
+  plan      String   @default("free")
+  message   String?  @db.Text
+  source    String   @default("site")
+  status    String   @default("new")
+  createdAt DateTime @default(now())
 }
 
 model ContactScan {
